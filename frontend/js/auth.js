@@ -10,7 +10,7 @@
 async function login(email, password) {
 
     const response = await fetch(
-        `${API_BASE_URL}/auth/login`,
+        `${API_BASE_URL}/api/auth/login`,
         {
             method: "POST",
 
@@ -157,6 +157,7 @@ function getCurrentUser() {
         return null;
 
     }
+
 }
 
 
@@ -351,13 +352,17 @@ function redirectUserByRole() {
 
 }
 
+
+
 // =========================================================
 // OPEN PROFILE BASED ON USER ROLE
 // =========================================================
 
 function openProfile() {
 
-    const user = getCurrentUser();
+    const user =
+        getCurrentUser();
+
 
     if (!user || !user.roles) {
 
@@ -365,6 +370,7 @@ function openProfile() {
             getRootPath() + "login.html";
 
         return;
+
     }
 
 
@@ -375,13 +381,17 @@ function openProfile() {
             getRootPath() + "admin/profile.html";
 
         return;
+
     }
 
 
     // CUSTOMER
     window.location.href =
         getRootPath() + "pages/profile.html";
+
 }
+
+
 
 // =========================================================
 // UPDATE HEADER AUTH STATE
@@ -392,16 +402,24 @@ function updateHeaderAuthState() {
     const logoutButton =
         document.getElementById("headerLogoutBtn");
 
+
     if (!logoutButton) {
+
         return;
+
     }
+
 
     if (isLoggedIn()) {
 
-        logoutButton.style.display = "inline-flex";
+        logoutButton.style.display =
+            "inline-flex";
 
     } else {
 
-        logoutButton.style.display = "none";
+        logoutButton.style.display =
+            "none";
+
     }
+
 }
