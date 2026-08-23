@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Admin Profile</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/profile.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
+<aside class="admin-sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🛒
+        </div>
+
+        <div>
+            <h2>Mini DMart</h2>
+            <span>Admin Panel</span>
+        </div>
+
+    </div>
+
+
+    <div class="sidebar-section">
+
+        <p class="sidebar-title">
+            MAIN MENU
+        </p>
+
+        <a href="dashboard.html" class="sidebar-link">
+            <span>📊</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="products.html" class="sidebar-link">
+            <span>📦</span>
+            <span>Products</span>
+        </a>
+
+        <a href="categories.html" class="sidebar-link">
+            <span>🗂️</span>
+            <span>Categories</span>
+        </a>
+
+        <a href="users.html" class="sidebar-link">
+            <span>👥</span>
+            <span>Users</span>
+        </a>
+
+        <a href="orders.html" class="sidebar-link">
+            <span>🛍️</span>
+            <span>Orders</span>
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-section">
+
+        <p class="sidebar-title">
+            OPERATIONS
+        </p>
+
+        <a href="inventory.html" class="sidebar-link">
+            <span>📊</span>
+            <span>Inventory</span>
+        </a>
+
+        <a href="pickup-slots.html" class="sidebar-link">
+            <span>🕐</span>
+            <span>Pickup Slots</span>
+        </a>
+
+        <a href="returns.html" class="sidebar-link">
+            <span>↩️</span>
+            <span>Returns</span>
+        </a>
+
+        <a href="exchanges.html" class="sidebar-link">
+            <span>🔄</span>
+            <span>Exchanges</span>
+        </a>
+
+        <a href="payments.html" class="sidebar-link">
+            <span>💳</span>
+            <span>Payments</span>
+        </a>
+
+        <a href="reviews.html" class="sidebar-link">
+            <span>⭐</span>
+            <span>Reviews</span>
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-section">
+
+        <p class="sidebar-title">
+            SYSTEM
+        </p>
+
+        <a href="audit-logs.html" class="sidebar-link">
+            <span>📋</span>
+            <span>Audit Logs</span>
+        </a>
+
+        <a href="profile.html" class="sidebar-link active">
+            <span>👤</span>
+            <span>My Profile</span>
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-bottom">
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            <span>🚪</span>
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+     ===================================================== -->
+
+<main class="admin-main">
+
+    <!-- PAGE HEADER -->
+    <header class="admin-header">
+
+        <div>
+
+            <p class="breadcrumb">
+                Admin / My Profile
+            </p>
+
+            <h1>
+                Administrator Profile
+            </h1>
+
+        </div>
+
+        <button
+            class="refresh-btn"
+            onclick="loadProfile()">
+
+            ↻ Refresh
+
+        </button>
+
+    </header>
+
+
+    <!-- PROFILE OVERVIEW CARD -->
+    <section class="profile-overview" style="margin-bottom: 24px;">
+
+        <div class="profile-avatar">
+            <span>👤</span>
+        </div>
+
+        <div class="profile-overview-info">
+            <span class="profile-welcome">
+                Administrator Account
+            </span>
+            <h2 id="profileName">
+                Loading...
+            </h2>
+            <p id="profileEmail">
+                Loading...
+            </p>
+        </div>
+
+        <div class="profile-account-badge">
+            <span class="badge-dot"></span>
+            System Admin
+        </div>
+
+    </section>
+
+
+    <!-- PROFILE FORM CARD -->
+    <div class="profile-form-card">
+
+        <div class="card-heading">
+
+            <div class="card-heading-icon">
+                ✏️
+            </div>
+
+            <div>
+                <h2>
+                    Edit Profile Information
+                </h2>
+                <p>
+                    Update your contact details and administrator information.
+                </p>
+            </div>
+
+        </div>
+
+        <form id="profileForm">
+
+            <div class="form-grid">
+
+                <div class="profile-form-group">
+                    <label for="fullName">
+                        Full Name
+                    </label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        required
+                        placeholder="Enter full name"
+                    >
+                </div>
+
+                <div class="profile-form-group">
+                    <label for="email">
+                        Email Address (Read Only)
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        disabled
+                    >
+                </div>
+
+                <div class="profile-form-group">
+                    <label for="phone">
+                        Phone Number
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter 10-digit phone"
+                    >
+                </div>
+
+                <div class="profile-form-group">
+                    <label for="address">
+                        Address / Location
+                    </label>
+                    <input
+                        type="text"
+                        id="address"
+                        placeholder="Enter location or address"
+                    >
+                </div>
+
+            </div>
+
+            <!-- ACCOUNT INFO METRICS -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; padding: 16px; background: #f8faf9; border-radius: 8px; border: 1px solid var(--border);">
+                <div>
+                    <small style="color: var(--text-light); display: block;">Roles</small>
+                    <strong id="roles">-</strong>
+                </div>
+                <div>
+                    <small style="color: var(--text-light); display: block;">Account Status</small>
+                    <strong id="accountStatus">-</strong>
+                </div>
+                <div>
+                    <small style="color: var(--text-light); display: block;">Member Since</small>
+                    <strong id="createdAt">-</strong>
+                </div>
+            </div>
+
+            <div id="profileMessage" class="profile-message"></div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
+                <button type="submit" class="save-btn" style="background: var(--green); color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    Save Profile Changes
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<!-- JAVASCRIPT -->
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/profile.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        requireRole("ADMIN");
+        loadProfile();
+    });
+</script>
+
+</body>
+
+</html>
