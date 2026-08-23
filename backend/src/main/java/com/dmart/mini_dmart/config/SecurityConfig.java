@@ -225,13 +225,35 @@ public class SecurityConfig {
         org.springframework.web.cors.CorsConfiguration configuration =
                 new org.springframework.web.cors.CorsConfiguration();
 
-        configuration.setAllowedOrigins(
+        java.util.List<String> allowedOriginPatterns = new java.util.ArrayList<>(
                 java.util.List.of(
-                        "http://localhost:5500",
-                        "http://127.0.0.1:5500",
-                        "https://mini-dmart-6llf.onrender.com"
+                        "http://localhost:*",
+                        "http://127.0.0.1:*",
+                        "https://*.onrender.com",
+                        "https://*.vercel.app",
+                        "https://*.netlify.app"
                 )
         );
+
+        String customOrigins = System.getenv("CORS_ALLOWED_ORIGINS");
+        if (customOrigins != null && !customOrigins.isBlank()) {
+            for (String origin : customOrigins.split(",")) {
+                String trimmed = origin.trim();
+                if (!trimmed.isEmpty() && !allowedOriginPatterns.contains(trimmed)) {
+                    allowedOriginPatterns.add(trimmed);
+                }
+            }
+        }
+
+        String frontendUrl = System.getenv("FRONTEND_URL");
+        if (frontendUrl != null && !frontendUrl.isBlank()) {
+            String trimmed = frontendUrl.trim();
+            if (!allowedOriginPatterns.contains(trimmed)) {
+                allowedOriginPatterns.add(trimmed);
+            }
+        }
+
+        configuration.setAllowedOriginPatterns(allowedOriginPatterns);
 
         configuration.setAllowedMethods(
                 java.util.List.of(
@@ -248,7 +270,12 @@ public class SecurityConfig {
                 java.util.List.of("*")
         );
 
+        configuration.setExposedHeaders(
+                java.util.List.of("Authorization", "Content-Type")
+        );
+
         configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
 
         org.springframework.web.cors.UrlBasedCorsConfigurationSource source =
                 new org.springframework.web.cors.UrlBasedCorsConfigurationSource();

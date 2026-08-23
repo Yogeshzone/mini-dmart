@@ -62,7 +62,7 @@ async function loadAllExchanges() {
 
         const response =
             await fetch(
-                `${API_BASE_URL}/exchanges/admin`,
+                `${API_BASE_URL}/api/exchanges/admin`,
                 {
                     method: "GET",
 
@@ -420,7 +420,7 @@ async function updateExchangeStatus(
 
         const response =
             await fetch(
-                `${API_BASE_URL}/exchanges/${exchangeId}/status`,
+                `${API_BASE_URL}/api/exchanges/${exchangeId}/status`,
                 {
                     method: "PUT",
 

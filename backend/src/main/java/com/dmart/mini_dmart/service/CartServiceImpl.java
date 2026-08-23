@@ -243,11 +243,11 @@ public class CartServiceImpl implements CartService {
                 );
 
         return cartRepository.findByUserId(user.getId())
-                .orElseThrow(() ->
-                        new ResourceNotFoundException(
-                                "Cart not found for user"
-                        )
-                );
+                .orElseGet(() -> {
+                    Cart newCart = new Cart();
+                    newCart.setUser(user);
+                    return cartRepository.save(newCart);
+                });
     }
 
     private CartResponse mapToCartResponse(Cart cart) {

@@ -1,0 +1,41 @@
+﻿# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.env
+
+# Maven / Java
+target/
+backend/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.factorypath
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Vercel
+.vercel/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
