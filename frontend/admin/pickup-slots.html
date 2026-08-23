@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Pickup Slots</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+    <link rel="stylesheet"
+          href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        🛒 Mini DMart
+    </div>
+
+
+    <div class="admin-label">
+        ADMIN PANEL
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
+
+
+        <a href="products.html">
+            📦 Products
+        </a>
+
+
+        <a href="categories.html">
+            🗂️ Categories
+        </a>
+
+
+        <a href="orders.html">
+            🛍️ Orders
+        </a>
+
+
+        <a href="exchanges.html">
+            🔄 Exchanges
+        </a>
+
+
+        <a href="returns.html">
+            ↩️ Returns
+        </a>
+
+
+        <a href="audit-logs.html">
+            📋 Audit Logs
+        </a>
+
+
+        <a href="pickup-slots.html"
+           class="active">
+
+            🕐 Pickup Slots
+
+        </a>
+
+
+        <a href="payments.html">
+            💳 Payments
+        </a>
+
+
+        <a href="inventory.html">
+            📦 Inventory
+        </a>
+
+    </nav>
+
+
+    <button
+        class="sidebar-logout"
+        onclick="logout()">
+
+        Logout
+
+    </button>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+     ===================================================== -->
+
+<main class="admin-main">
+
+
+    <!-- =================================================
+         PAGE HEADER
+         ================================================= -->
+
+    <header class="admin-header">
+
+        <div>
+
+            <h1>
+                Pickup Slot Management
+            </h1>
+
+
+            <p>
+                Create and manage store pickup time slots
+            </p>
+
+        </div>
+
+
+        <button
+            class="refresh-btn"
+            onclick="loadPickupSlots()">
+
+            ↻ Refresh
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =================================================
+         CREATE PICKUP SLOT
+         ================================================= -->
+
+    <section class="pickup-create-section">
+
+
+        <div class="pickup-section-header">
+
+            <div>
+
+                <h2>
+                    Create Pickup Slot
+                </h2>
+
+
+                <p>
+                    Add a new time slot for customer store pickups
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="pickupSlotForm">
+
+
+            <div class="pickup-form-grid">
+
+
+                <!-- DATE -->
+
+                <div class="pickup-form-group">
+
+                    <label for="slotDate">
+                        Date
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="slotDate"
+                        required>
+
+                </div>
+
+
+
+                <!-- START TIME -->
+
+                <div class="pickup-form-group">
+
+                    <label for="startTime">
+                        Start Time
+                    </label>
+
+
+                    <input
+                        type="time"
+                        id="startTime"
+                        required>
+
+                </div>
+
+
+
+                <!-- END TIME -->
+
+                <div class="pickup-form-group">
+
+                    <label for="endTime">
+                        End Time
+                    </label>
+
+
+                    <input
+                        type="time"
+                        id="endTime"
+                        required>
+
+                </div>
+
+
+
+                <!-- CAPACITY -->
+
+                <div class="pickup-form-group">
+
+                    <label for="capacity">
+                        Capacity
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="capacity"
+                        min="1"
+                        placeholder="e.g. 10"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <div class="pickup-form-actions">
+
+                <button
+                    type="submit"
+                    class="pickup-create-btn">
+
+                    + Create Slot
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PICKUP SLOT LIST
+         ================================================= -->
+
+    <section class="pickup-table-section">
+
+
+        <!-- SECTION HEADER -->
+
+        <div class="pickup-table-header">
+
+            <div>
+
+                <h2>
+                    Pickup Slots
+                </h2>
+
+
+                <p>
+                    View available and booked pickup slots
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TABLE -->
+
+        <div class="pickup-table-wrapper">
+
+            <table class="pickup-table">
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Start
+                        </th>
+
+                        <th>
+                            End
+                        </th>
+
+                        <th>
+                            Capacity
+                        </th>
+
+                        <th>
+                            Booked
+                        </th>
+
+                        <th>
+                            Available
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody id="pickupSlotsTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="8"
+                            class="pickup-loading">
+
+                            Loading pickup slots...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/admin.js"></script>
+
+
+<script>
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+            loadPickupSlots();
+
+
+            const form =
+                document.getElementById(
+                    "pickupSlotForm"
+                );
+
+
+            form.addEventListener(
+                "submit",
+                createPickupSlot
+            );
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

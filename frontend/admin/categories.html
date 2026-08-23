@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Categories</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="products.html">
+                📦 Products
+            </a>
+
+            <a href="categories.html" class="active">
+                🗂️ Categories
+            </a>
+
+            <a href="orders.html">
+                🛍️ Orders
+            </a>
+
+            <a href="exchanges.html">
+                🔄 Exchanges
+            </a>
+
+            <a href="audit-logs.html">
+                📋 Audit Logs
+            </a>
+
+            <a href="pickup-slots.html">
+                🕐 Pickup Slots
+            </a>
+
+            <a href="returns.html">
+                ↩️ Returns
+            </a>
+
+            <a href="payments.html">
+                💳 Payments
+            </a>
+
+            <a href="inventory.html">
+                📊 Inventory
+            </a>
+
+        </nav>
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <section class="page-intro">
+
+            <div>
+
+                <span class="page-eyebrow">
+                    CATALOG MANAGEMENT
+                </span>
+
+                <h1>
+                    Categories
+                </h1>
+
+                <p>
+                    Organize your Mini DMart products into categories
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-primary-btn category-add-btn"
+                onclick="openCreateCategoryModal()">
+
+                <span>＋</span>
+
+                Add Category
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             CATEGORY TOOLBAR
+             ================================================= -->
+
+        <section class="category-toolbar">
+
+            <div class="category-search">
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+                <input
+                    type="text"
+                    id="categorySearch"
+                    placeholder="Search categories..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <button
+                type="button"
+                class="refresh-btn"
+                onclick="loadAdminCategories()">
+
+                ↻ Refresh
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             CATEGORY TABLE
+             ================================================= -->
+
+        <section class="admin-table-section category-table-section">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        CATEGORY LIST
+                    </span>
+
+                    <h2>
+                        Product Categories
+                    </h2>
+
+                    <p>
+                        Manage the categories available across your store.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="category-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                CATEGORY
+                            </th>
+
+                            <th>
+                                DESCRIPTION
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                            <th>
+                                CREATED
+                            </th>
+
+                            <th>
+                                ACTIONS
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="categoriesTableBody">
+
+                        <tr>
+
+                            <td colspan="6"
+                                class="table-loading">
+
+                                Loading categories...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         CATEGORY MODAL
+         ===================================================== -->
+
+    <div
+        id="categoryModal"
+        class="modal hidden">
+
+        <div class="modal-content category-modal-content">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="modal-eyebrow">
+                        CATEGORY
+                    </span>
+
+                    <h2 id="categoryModalTitle">
+                        Add Category
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    onclick="closeCategoryModal()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="categoryForm">
+
+
+                <input
+                    type="hidden"
+                    id="categoryId">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="categoryName">
+                        Category Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="categoryName"
+                        name="categoryName"
+                        placeholder="e.g. Groceries"
+                        minlength="2"
+                        maxlength="100"
+                        required>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="categoryDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="categoryDescription"
+                        name="categoryDescription"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="Describe this category..."></textarea>
+
+                </div>
+
+
+                <!-- ACTIVE -->
+
+                <div class="category-active-box">
+
+                    <label class="category-checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="categoryActive"
+                            checked>
+
+                        <span class="custom-check"></span>
+
+                        <span>
+
+                            <strong>
+                                Active Category
+                            </strong>
+
+                            <small>
+                                Products can be assigned to this category
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeCategoryModal()">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="categorySubmitButton"
+                        class="admin-primary-btn">
+
+                        Create Category
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin.js"></script>
+
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadAdminCategories();
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

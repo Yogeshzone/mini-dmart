@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Exchange Management</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+    <link rel="stylesheet"
+          href="../css/dashboard.css">
+
+    <link rel="stylesheet"
+          href="../css/admin-exchanges.css">
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="products.html">
+                📦 Products
+            </a>
+
+            <a href="categories.html">
+                🗂️ Categories
+            </a>
+
+            <a href="orders.html">
+                🛍️ Orders
+            </a>
+
+            <a href="exchanges.html"
+               class="active">
+
+                🔄 Exchanges
+
+            </a>
+
+            <a href="returns.html">
+                ↩️ Returns
+            </a>
+
+            <a href="audit-logs.html">
+                📋 Audit Logs
+            </a>
+
+            <a href="pickup-slots.html">
+                🕐 Pickup Slots
+            </a>
+
+            <a href="payments.html">
+                💳 Payments
+            </a>
+
+            <a href="inventory.html">
+                📦 Inventory
+            </a>
+
+        </nav>
+
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <h1>
+                    Exchange Management
+                </h1>
+
+                <p>
+                    Review and process customer exchange requests
+                </p>
+
+            </div>
+
+
+            <button
+                class="refresh-btn"
+                onclick="loadAllExchanges()">
+
+                ↻ Refresh
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             EXCHANGE REQUESTS
+             ================================================= -->
+
+        <section class="exchange-admin-section">
+
+
+            <div class="exchange-section-header">
+
+                <div>
+
+                    <h2>
+                        All Exchange Requests
+                    </h2>
+
+                    <p>
+                        Review customer requests and update exchange status
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="exchangeList">
+
+                <p class="exchange-loading">
+                    Loading exchange requests...
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin-exchanges.js"></script>
+
+
+    <script>
+
+        loadAllExchanges();
+
+    </script>
+
+</body>
+
+</html>

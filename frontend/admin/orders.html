@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Admin Orders</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="products.html">
+                <span>📦</span>
+                Products
+            </a>
+
+            <a href="categories.html">
+                <span>🗂️</span>
+                Categories
+            </a>
+
+            <a href="orders.html"
+               class="active">
+
+                <span>🛍️</span>
+                Orders
+
+            </a>
+
+            <a href="exchanges.html">
+                <span>🔄</span>
+                Exchanges
+            </a>
+
+            <a href="returns.html">
+                <span>↩️</span>
+                Returns
+            </a>
+
+            <a href="payments.html">
+                <span>💳</span>
+                Payments
+            </a>
+
+            <a href="inventory.html">
+                <span>📊</span>
+                Inventory
+            </a>
+
+            <a href="audit-logs.html">
+                <span>📋</span>
+                Audit Logs
+            </a>
+
+            <a href="pickup-slots.html">
+                <span>🕐</span>
+                Pickup Slots
+            </a>
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            <span>↪</span>
+            Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <div class="admin-page-label">
+                    ORDER MANAGEMENT
+                </div>
+
+                <h1>
+                    Manage Orders
+                </h1>
+
+                <p>
+                    View customer orders and update their status.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="refresh-btn"
+                onclick="loadAdminOrders()">
+
+                <span>↻</span>
+                Refresh
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             ORDERS SECTION
+             ================================================= -->
+
+        <section class="admin-table-section">
+
+
+            <!-- TABLE HEADER -->
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+                        All Orders
+                    </h2>
+
+                    <p class="table-description">
+                        Manage recent customer orders
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TABLE
+                 ================================================= -->
+
+            <div class="table-wrapper">
+
+                <table class="admin-orders-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Order
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Fulfillment
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Created
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="ordersTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="table-loading">
+
+                                <div class="table-loader">
+                                    ⏳
+                                </div>
+
+                                <span>
+                                    Loading orders...
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin.js"></script>
+
+
+    <script>
+
+        loadAdminOrders();
+
+    </script>
+
+</body>
+
+</html>

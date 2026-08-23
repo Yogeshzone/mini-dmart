@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Login to your Mini DMart account">
+
+    <title>Mini DMart | Login</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/auth.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+<!-- =====================================================
+     LOGIN PAGE
+     ===================================================== -->
+
+<main class="auth-page-container">
+
+
+    <!-- LEFT / BRAND SECTION -->
+
+    <section class="auth-brand-section">
+
+        <a href="index.html"
+           class="auth-logo">
+
+            <span class="auth-logo-icon">
+                🛒
+            </span>
+
+            <span>
+                Mini <strong>DMart</strong>
+            </span>
+
+        </a>
+
+
+        <div class="auth-brand-content">
+
+            <span class="auth-badge">
+                🌿 Fresh & Convenient
+            </span>
+
+
+            <h1>
+                Everything you need,
+                <span>in one place.</span>
+            </h1>
+
+
+            <p>
+                Shop groceries, beverages and everyday
+                essentials with Mini DMart.
+            </p>
+
+
+            <div class="auth-benefits">
+
+                <div class="auth-benefit">
+
+                    <span>🚚</span>
+
+                    <div>
+                        <strong>Fast Delivery</strong>
+
+                        <small>
+                            Get your essentials quickly
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="auth-benefit">
+
+                    <span>🌿</span>
+
+                    <div>
+                        <strong>Fresh Products</strong>
+
+                        <small>
+                            Quality products you can trust
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="auth-benefit">
+
+                    <span>🔒</span>
+
+                    <div>
+                        <strong>Secure Shopping</strong>
+
+                        <small>
+                            Your account is protected
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RIGHT / LOGIN FORM -->
+
+    <section class="auth-form-section">
+
+
+        <div class="auth-card">
+
+
+            <div class="auth-card-header">
+
+                <div class="mobile-auth-logo">
+
+                    🛒 Mini <strong>DMart</strong>
+
+                </div>
+
+
+                <h2>
+                    Welcome back
+                </h2>
+
+
+                <p>
+                    Login to continue shopping
+                </p>
+
+            </div>
+
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✉️
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <div class="form-label-row">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                    </div>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ERROR MESSAGE -->
+
+                <p id="errorMessage"
+                   class="error-message">
+                </p>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="btn-primary">
+
+                    <span>
+                        Login to Mini DMart
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- REGISTER -->
+
+            <div class="auth-divider">
+
+                <span>
+                    New to Mini DMart?
+                </span>
+
+            </div>
+
+
+            <a href="register.html"
+               class="register-button">
+
+                Create an account
+
+            </a>
+
+
+
+            <!-- BACK TO STORE -->
+
+            <a href="index.html"
+               class="back-to-store">
+
+                ← Continue as guest
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="js/api.js"></script>
+
+<script src="js/auth.js"></script>
+
+
+<script>
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+
+    loginForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document.getElementById("email").value;
+
+
+            const password =
+                document.getElementById("password").value;
+
+
+            const errorMessage =
+                document.getElementById("errorMessage");
+
+
+            errorMessage.textContent = "";
+
+
+            try {
+
+                const data =
+                    await login(
+                        email,
+                        password
+                    );
+
+
+                const user =
+                    data.user;
+
+
+                if (
+                    user.roles.includes("ADMIN")
+                ) {
+
+                    window.location.href =
+                        "admin/dashboard.html";
+
+                } else {
+
+                    window.location.href =
+                        "index.html";
+
+                }
+
+
+            } catch (error) {
+
+                errorMessage.textContent =
+                    error.message;
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

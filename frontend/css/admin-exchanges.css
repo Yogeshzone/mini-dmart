@@ -1,0 +1,398 @@
+/* =========================================================
+   ADMIN EXCHANGE PAGE
+   ========================================================= */
+
+.admin-exchange-container {
+
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 35px auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+
+    background: white;
+
+    padding: 25px 30px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.page-header h1 {
+
+    margin: 0 0 6px;
+
+    font-size: 32px;
+}
+
+.page-header p {
+
+    margin: 0;
+
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   REFRESH
+   ========================================================= */
+
+.refresh-btn {
+
+    padding: 11px 20px;
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.refresh-btn:hover {
+
+    background: #f3f4f6;
+}
+
+
+/* =========================================================
+   EXCHANGE CARD
+   ========================================================= */
+
+.exchange-card {
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin-bottom: 18px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.exchange-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 18px;
+
+    margin-bottom: 20px;
+}
+
+.exchange-card-header h2 {
+
+    margin: 0 0 6px;
+
+    font-size: 21px;
+}
+
+.exchange-card-header p {
+
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.status-requested {
+
+    background: #fff3cd;
+
+    color: #856404;
+}
+
+.status-approved {
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+}
+
+.status-rejected {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+.status-completed {
+
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.exchange-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.detail-box {
+
+    background: #f9fafb;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.detail-box span {
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+}
+
+.detail-box strong {
+
+    color: #111827;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   STAFF REMARKS
+   ========================================================= */
+
+.staff-remarks {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #f9fafb;
+
+    border-left: 4px solid #2563eb;
+
+    border-radius: 6px;
+}
+
+.staff-remarks p {
+
+    margin-bottom: 0;
+
+    color: #374151;
+}
+
+
+/* =========================================================
+   PROCESSED DATE
+   ========================================================= */
+
+.processed-date {
+
+    margin-top: 15px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.exchange-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.exchange-actions button {
+
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* APPROVE */
+
+.approve-btn {
+
+    background: #16a34a;
+}
+
+.approve-btn:hover {
+
+    background: #15803d;
+}
+
+
+/* REJECT */
+
+.reject-btn {
+
+    background: #dc2626;
+}
+
+.reject-btn:hover {
+
+    background: #b91c1c;
+}
+
+
+/* COMPLETE */
+
+.complete-btn {
+
+    background: #2563eb;
+}
+
+.complete-btn:hover {
+
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+   ========================================================= */
+
+.empty-message,
+.loading {
+
+    background: white;
+
+    padding: 50px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    color: #6b7280;
+}
+
+.error-message {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    padding: 18px;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .page-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .exchange-card-header {
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .exchange-details {
+
+        grid-template-columns: 1fr;
+    }
+
+    .exchange-actions {
+
+        flex-direction: column;
+    }
+
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Inventory</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="products.html">
+                📦 Products
+            </a>
+
+            <a href="categories.html">
+                🗂️ Categories
+            </a>
+
+            <a href="orders.html">
+                🛍️ Orders
+            </a>
+
+            <a href="exchanges.html">
+                🔄 Exchanges
+            </a>
+
+            <a href="returns.html">
+                ↩️ Returns
+            </a>
+
+            <a href="audit-logs.html">
+                📋 Audit Logs
+            </a>
+
+            <a href="pickup-slots.html">
+                🕐 Pickup Slots
+            </a>
+
+            <a href="payments.html">
+                💳 Payments
+            </a>
+
+            <a href="inventory.html"
+               class="active">
+                📦 Inventory
+            </a>
+
+        </nav>
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <h1>
+                    Inventory Management
+                </h1>
+
+                <p>
+                    Monitor product stock and inventory levels
+                </p>
+
+            </div>
+
+            <button
+                class="refresh-btn"
+                onclick="loadAdminInventory()">
+
+                ↻ Refresh
+
+            </button>
+
+        </header>
+
+
+        <!-- =================================================
+             INVENTORY TABLE
+             ================================================= -->
+
+        <section class="inventory-table-section">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="inventory-table-header">
+
+                <div>
+
+                    <h2>
+                        Product Inventory
+                    </h2>
+
+                    <p>
+                        Track stock availability across all products
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="inventory-table-wrapper">
+
+                <table class="inventory-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Product ID
+                            </th>
+
+                            <th>
+                                Product
+                            </th>
+
+                            <th>
+                                Stock
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Stock Level
+                            </th>
+
+                            <th>
+                                Last Updated
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="inventoryTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="7"
+                                class="inventory-loading">
+
+                                Loading inventory...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin.js"></script>
+
+
+    <script>
+
+        loadAdminInventory();
+
+    </script>
+
+</body>
+
+</html>

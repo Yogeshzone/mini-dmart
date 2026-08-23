@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Manage Users</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="products.html">
+                📦 Products
+            </a>
+
+            <a href="categories.html">
+                🗂️ Categories
+            </a>
+
+            <a href="users.html" class="active">
+                👥 Users
+            </a>
+
+            <a href="orders.html">
+                🛍️ Orders
+            </a>
+
+            <a href="exchanges.html">
+                🔄 Exchanges
+            </a>
+
+            <a href="returns.html">
+                ↩️ Returns
+            </a>
+
+            <a href="reviews.html">
+                ⭐ Reviews
+            </a>
+
+            <a href="audit-logs.html">
+                📋 Audit Logs
+            </a>
+
+            <a href="pickup-slots.html">
+                🕐 Pickup Slots
+            </a>
+
+            <a href="payments.html">
+                💳 Payments
+            </a>
+
+            <a href="inventory.html">
+                📦 Inventory
+            </a>
+
+        </nav>
+
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <h1>
+                    Manage Users
+                </h1>
+
+                <p>
+                    View and manage Mini DMart user accounts
+                </p>
+
+            </div>
+
+
+            <button
+                class="refresh-btn"
+                onclick="loadAdminUsers()">
+
+                ↻ Refresh
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             USERS TABLE
+             ================================================= -->
+
+        <section class="users-table-section">
+
+
+            <div class="users-table-header">
+
+                <div>
+
+                    <h2>
+                        All Users
+                    </h2>
+
+                    <p>
+                        Manage customer and staff accounts
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="users-table-wrapper">
+
+                <table class="users-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Phone</th>
+
+                            <th>Role</th>
+
+                            <th>Status</th>
+
+                            <th>Created</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="usersTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="users-loading">
+
+                                Loading users...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ERROR -->
+
+        <p
+            id="usersError"
+            class="dashboard-error">
+        </p>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin.js"></script>
+
+
+    <script>
+
+        loadAdminUsers();
+
+    </script>
+
+</body>
+
+</html>

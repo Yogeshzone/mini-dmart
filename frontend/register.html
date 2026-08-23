@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Create your Mini DMart account">
+
+    <title>Mini DMart | Register</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/auth.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+<!-- =====================================================
+     REGISTER PAGE
+     ===================================================== -->
+
+<main class="auth-page-container">
+
+
+    <!-- =================================================
+         BRAND SECTION
+         ================================================= -->
+
+    <section class="auth-brand-section">
+
+        <a href="index.html"
+           class="auth-logo">
+
+            <span class="auth-logo-icon">
+                🛒
+            </span>
+
+            <span>
+                Mini <strong>DMart</strong>
+            </span>
+
+        </a>
+
+
+        <div class="auth-brand-content">
+
+            <span class="auth-badge">
+                🌿 Fresh & Convenient
+            </span>
+
+
+            <h1>
+
+                Your everyday shopping,
+                <span>made simple.</span>
+
+            </h1>
+
+
+            <p>
+
+                Create your Mini DMart account and
+                enjoy a simple and convenient
+                shopping experience.
+
+            </p>
+
+
+            <div class="auth-benefits">
+
+
+                <div class="auth-benefit">
+
+                    <span>
+                        🛒
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Easy Shopping
+                        </strong>
+
+                        <small>
+                            Shop your daily essentials easily
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="auth-benefit">
+
+                    <span>
+                        🚚
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Fast Delivery
+                        </strong>
+
+                        <small>
+                            Get your essentials delivered
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="auth-benefit">
+
+                    <span>
+                        🔒
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Secure Account
+                        </strong>
+
+                        <small>
+                            Your information stays protected
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REGISTER FORM
+         ================================================= -->
+
+    <section class="auth-form-section">
+
+
+        <div class="auth-card">
+
+
+            <div class="auth-card-header">
+
+
+                <div class="mobile-auth-logo">
+
+                    🛒 Mini <strong>DMart</strong>
+
+                </div>
+
+
+                <h2>
+                    Create your account
+                </h2>
+
+
+                <p>
+                    Join Mini DMart and start shopping
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REGISTER FORM
+                 ================================================= -->
+
+            <form id="registerForm">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✉️
+                        </span>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📱
+                        </span>
+
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your phone number"
+                            autocomplete="tel"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Delivery Address
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📍
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="address"
+                            placeholder="Enter your delivery address"
+                            autocomplete="street-address"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ERROR / SUCCESS MESSAGE -->
+
+                <p id="registerMessage"
+                   class="error-message">
+
+                </p>
+
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="btn-primary">
+
+                    <span>
+                        Create Account
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- LOGIN -->
+
+            <div class="auth-divider">
+
+                <span>
+                    Already have an account?
+                </span>
+
+            </div>
+
+
+            <a href="login.html"
+               class="register-button">
+
+                Login to your account
+
+            </a>
+
+
+
+            <!-- BACK TO STORE -->
+
+            <a href="index.html"
+               class="back-to-store">
+
+                ← Back to Mini DMart
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="js/api.js"></script>
+
+
+<script>
+
+    const registerForm =
+        document.getElementById("registerForm");
+
+
+    registerForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const message =
+                document.getElementById(
+                    "registerMessage"
+                );
+
+
+            message.textContent = "";
+            message.style.color = "";
+
+
+            const fullName =
+                document.getElementById(
+                    "fullName"
+                ).value.trim();
+
+
+            const email =
+                document.getElementById(
+                    "email"
+                ).value.trim();
+
+
+            const phone =
+                document.getElementById(
+                    "phone"
+                ).value.trim();
+
+
+            const password =
+                document.getElementById(
+                    "password"
+                ).value;
+
+
+            const address =
+                document.getElementById(
+                    "address"
+                ).value.trim();
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_BASE_URL}/auth/register`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    fullName:
+                                        fullName,
+
+                                    email:
+                                        email,
+
+                                    phone:
+                                        phone,
+
+                                    password:
+                                        password,
+
+                                    address:
+                                        address
+
+                                })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Registration failed"
+                    );
+
+                }
+
+
+                message.textContent =
+                    "Account created successfully! Redirecting to login...";
+
+
+                message.style.color =
+                    "#2f805c";
+
+
+                registerForm.reset();
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "login.html";
+
+                    },
+                    1200
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Registration error:",
+                    error
+                );
+
+
+                message.textContent =
+                    error.message;
+
+
+                message.style.color =
+                    "#c95b5b";
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1123 @@
+/* =========================================================
+   CUSTOMER PAGES - COMMON
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #1f2937;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    height: 72px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #111827;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.navbar nav a:hover {
+    color: #ff6b00;
+}
+
+.navbar nav button {
+    border: none;
+    background: #ff6b00;
+    color: white;
+    padding: 11px 22px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar nav button:hover {
+    background: #e85f00;
+}
+
+
+/* =========================================================
+   PAGE CONTAINER
+   ========================================================= */
+
+.orders-container,
+.order-details-container,
+.checkout-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.orders-header,
+.page-header {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.orders-header h1,
+.page-header h1 {
+    margin: 0 0 6px;
+    font-size: 34px;
+    color: #111827;
+}
+
+.orders-header p,
+.page-header p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.refresh-btn,
+.back-btn {
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #374151;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.refresh-btn:hover,
+.back-btn:hover {
+    background: #f3f4f6;
+}
+
+
+/* =========================================================
+   ORDERS
+   ========================================================= */
+
+.orders-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.order-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.order-card-header h2 {
+    margin: 0 0 5px;
+    font-size: 21px;
+}
+
+.order-card-header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.order-status {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-confirmed {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-preparing {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+.status-ready {
+    background: #cffafe;
+    color: #0e7490;
+}
+
+.status-delivery {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.status-picked {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-delivered {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-cancelled {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   ORDER CARD BODY
+   ========================================================= */
+
+.order-card-body {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+    padding: 22px 0;
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.order-info strong {
+    color: #6b7280;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.order-info span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ORDER ACTIONS
+   ========================================================= */
+
+.order-card-actions {
+    display: flex;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.view-order-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.view-order-btn:hover {
+    background: #1d4ed8;
+}
+
+.cancel-order-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-order-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================================================
+   EMPTY ORDERS
+   ========================================================= */
+
+.empty-orders {
+    background: white;
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.empty-orders h2 {
+    margin-bottom: 10px;
+}
+
+.empty-orders p {
+    color: #6b7280;
+}
+
+.empty-orders a {
+    display: inline-block;
+    margin-top: 15px;
+    background: #ff6b00;
+    color: white;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ORDER DETAILS
+   ========================================================= */
+
+.order-details-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.order-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.order-details-header h2 {
+    margin: 0 0 5px;
+    font-size: 25px;
+}
+
+.order-details-header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   INFORMATION SECTION
+   ========================================================= */
+
+.order-information,
+.order-items,
+.order-summary {
+    padding: 25px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.order-information h2,
+.order-items h2,
+.order-summary h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 12px 0;
+}
+
+.detail-row strong {
+    color: #374151;
+}
+
+.detail-row span {
+    color: #111827;
+    text-align: right;
+}
+
+
+/* =========================================================
+   ORDER ITEMS
+   ========================================================= */
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    margin-bottom: 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.item-info h3 {
+    margin: 0 0 7px;
+    font-size: 17px;
+}
+
+.item-info p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.item-price {
+    text-align: right;
+}
+
+.item-price p {
+    margin: 0 0 6px;
+    color: #6b7280;
+}
+
+.item-price strong {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   PRICE SUMMARY
+   ========================================================= */
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.total-row {
+    font-size: 20px;
+    padding-top: 18px;
+}
+
+.order-summary hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   ORDER ACTIONS
+   ========================================================= */
+
+.order-actions {
+    padding-top: 25px;
+}
+
+.order-actions .cancel-order-btn {
+    padding: 12px 25px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-message {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.error-message button {
+    margin-top: 10px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.checkout-form,
+.checkout-summary {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.checkout-form h2,
+.checkout-summary h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   FULFILLMENT
+   ========================================================= */
+
+.fulfillment-option {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.fulfillment-option label {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fulfillment-option input {
+    margin-right: 10px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+#deliverySection label,
+#pickupSection label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#deliveryAddress,
+#pickupDate {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#deliveryAddress:focus,
+#pickupDate:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+
+/* =========================================================
+   PICKUP SLOTS
+   ========================================================= */
+
+.pickup-slot {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.pickup-slot:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.pickup-slot label {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+.pickup-slot span {
+    margin-left: auto;
+    color: #15803d;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CHECKOUT ITEMS
+   ========================================================= */
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.checkout-item p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PLACE ORDER
+   ========================================================= */
+
+.place-order-btn {
+    width: 100%;
+    margin-top: 25px;
+    background: #ff6b00;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.place-order-btn:hover {
+    background: #e85f00;
+}
+
+.place-order-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .navbar nav a {
+        font-size: 14px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .orders-container,
+    .order-details-container,
+    .checkout-container {
+        width: 94%;
+    }
+
+    .order-card-body {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .orders-header,
+    .page-header {
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .detail-row span {
+        text-align: left;
+    }
+
+}
+
+/* =========================================================
+   PAYMENT SECTION
+   ========================================================= */
+
+.order-payment-section {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.order-payment-section > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.payment-pending,
+.payment-success,
+.payment-failed,
+.payment-refunded,
+.payment-not-created {
+    font-weight: 600;
+}
+
+.payment-pending {
+    color: #d97706;
+}
+
+.payment-success {
+    color: #16a34a;
+}
+
+.payment-failed {
+    color: #dc2626;
+}
+
+.payment-refunded {
+    color: #7c3aed;
+}
+
+.payment-not-created {
+    color: #dc2626;
+}
+
+.pay-now-btn {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #16a34a;
+    color: white;
+}
+
+.pay-now-btn:hover {
+    opacity: 0.9;
+}
+
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
+
+.product-details-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.product-details-card {
+    display: flex;
+    gap: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-section {
+    width: 40%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-details-image {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.no-product-image {
+    font-size: 100px;
+}
+
+.product-details-info {
+    flex: 1;
+}
+
+.product-details-info h1 {
+    margin-bottom: 15px;
+}
+
+.product-description {
+    line-height: 1.6;
+    color: #666;
+}
+
+.product-price {
+    margin: 20px 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.product-stock {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stock-available {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.stock-unavailable {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.add-to-cart-btn {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #16a34a;
+    color: white;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   REVIEWS
+   ========================================================= */
+
+.reviews-section {
+    margin-top: 40px;
+}
+
+.reviews-header {
+    margin-bottom: 20px;
+}
+
+.review-form-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.submit-review-btn {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+}
+
+.review-message {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   REVIEW CARDS
+   ========================================================= */
+
+.existing-reviews {
+    margin-top: 30px;
+}
+
+.review-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.review-rating {
+    margin-top: 5px;
+}
+
+.review-comment {
+    line-height: 1.6;
+    color: #555;
+}
+
+.no-reviews {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* =========================================================
+   PROFILE PAGE
+   ========================================================= */
+
+.profile-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.profile-header h1 {
+    margin-bottom: 5px;
+}
+
+.profile-header p {
+    margin: 0;
+    color: #666;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1f5f9;
+    font-size: 40px;
+}
+
+.profile-info h2 {
+    margin: 0 0 5px;
+}
+
+.profile-info p {
+    margin: 0;
+    color: #666;
+}
+
+.profile-form-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-form-section h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.form-group input:disabled {
+    background: #f1f1f1;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.account-information {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.account-information h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.profile-detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-detail-row:last-child {
+    border-bottom: none;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.save-profile-btn,
+.cancel-profile-btn {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.save-profile-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.cancel-profile-btn {
+    background: #e5e7eb;
+    color: #111;
+}
+
+.profile-message {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.profile-message.success {
+    color: #15803d;
+}
+
+.profile-message.error {
+    color: #dc2626;
+}
+
+@media (max-width: 700px) {
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+}

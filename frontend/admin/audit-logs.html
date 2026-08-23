@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Audit Logs</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+
+            <a href="products.html">
+                📦 Products
+            </a>
+
+
+            <a href="categories.html">
+                🗂️ Categories
+            </a>
+
+
+            <a href="orders.html">
+                🛍️ Orders
+            </a>
+
+
+            <a href="exchanges.html">
+                🔄 Exchanges
+            </a>
+
+
+            <a href="returns.html">
+                ↩️ Returns
+            </a>
+
+
+            <a href="audit-logs.html"
+               class="active">
+
+                📋 Audit Logs
+
+            </a>
+
+
+            <a href="pickup-slots.html">
+                🕐 Pickup Slots
+            </a>
+
+
+            <a href="payments.html">
+                💳 Payments
+            </a>
+
+
+            <a href="inventory.html">
+                📦 Inventory
+            </a>
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <h1>
+                    Audit Logs
+                </h1>
+
+
+                <p>
+                    Track important activities in Mini DMart
+                </p>
+
+            </div>
+
+
+            <button
+                class="refresh-btn"
+                onclick="loadAuditLogs()">
+
+                ↻ Refresh
+
+            </button>
+
+        </header>
+
+
+        <!-- =================================================
+             AUDIT LOG SECTION
+             ================================================= -->
+
+        <section class="audit-table-section">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="audit-table-header">
+
+                <div>
+
+                    <h2>
+                        System Activity
+                    </h2>
+
+
+                    <p>
+                        A record of important activities
+                        performed in Mini DMart
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TABLE
+                 ================================================= -->
+
+            <div class="audit-table-wrapper">
+
+                <table class="audit-table">
+
+
+                    <!-- TABLE HEADER -->
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+
+                            <th>
+                                Action
+                            </th>
+
+
+                            <th>
+                                Entity Type
+                            </th>
+
+
+                            <th>
+                                Entity ID
+                            </th>
+
+
+                            <th>
+                                User ID
+                            </th>
+
+
+                            <th>
+                                Details
+                            </th>
+
+
+                            <th>
+                                Created At
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <!-- TABLE BODY -->
+
+                    <tbody id="auditLogsTableBody">
+
+                        <tr>
+
+                            <td colspan="7">
+
+                                Loading audit logs...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAGINATION
+                 ================================================= -->
+
+            <div class="audit-pagination">
+
+
+                <button
+                    id="previousPageBtn"
+                    onclick="previousAuditPage()">
+
+                    ← Previous
+
+                </button>
+
+
+                <span id="auditPageInfo">
+
+                    Page 1
+
+                </span>
+
+
+                <button
+                    id="nextPageBtn"
+                    onclick="nextAuditPage()">
+
+                    Next →
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ================================================= -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin.js"></script>
+
+
+    <script>
+
+        loadAuditLogs();
+
+    </script>
+
+
+</body>
+
+</html>

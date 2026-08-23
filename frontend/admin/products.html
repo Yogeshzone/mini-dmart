@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Products</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <span>📊</span>
+                <small>Dashboard</small>
+            </a>
+
+            <a href="products.html" class="active">
+                <span>📦</span>
+                <small>Products</small>
+            </a>
+
+            <a href="orders.html">
+                <span>🛍️</span>
+                <small>Orders</small>
+            </a>
+
+            <a href="exchanges.html">
+                <span>🔄</span>
+                <small>Exchanges</small>
+            </a>
+
+            <a href="audit-logs.html">
+                <span>📋</span>
+                <small>Audit Logs</small>
+            </a>
+
+            <a href="pickup-slots.html">
+                <span>🕐</span>
+                <small>Pickup Slots</small>
+            </a>
+
+            <a href="returns.html">
+                <span>↩️</span>
+                <small>Returns</small>
+            </a>
+
+            <a href="payments.html">
+                <span>💳</span>
+                <small>Payments</small>
+            </a>
+
+            <a href="inventory.html">
+                <span>📊</span>
+                <small>Inventory</small>
+            </a>
+
+        </nav>
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="admin-main products-page">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <section class="products-topbar">
+
+            <div>
+
+                <p class="page-eyebrow">
+                    CATALOG MANAGEMENT
+                </p>
+
+                <h1>
+                    Products
+                </h1>
+
+                <p class="page-subtitle">
+                    Manage your Mini DMart product catalog
+                </p>
+
+            </div>
+
+            <button
+                class="product-add-btn"
+                onclick="openCreateProductModal()">
+
+                <span>＋</span>
+                Add Product
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             PRODUCT TOOLBAR
+             ================================================= -->
+
+        <section class="products-toolbar">
+
+            <div class="product-search-box">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="adminProductSearch"
+                    placeholder="Search products...">
+
+            </div>
+
+
+            <button
+                class="product-refresh-btn"
+                onclick="loadAdminProducts()">
+
+                ↻ Refresh
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             PRODUCTS TABLE
+             ================================================= -->
+
+        <section class="products-card">
+
+            <div class="products-card-header">
+
+                <div>
+
+                    <h2>
+                        Product Catalog
+                    </h2>
+
+                    <p>
+                        All products currently available in your catalog
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="products-table-wrapper">
+
+                <table class="products-admin-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>PRODUCT</th>
+
+                            <th>CATEGORY</th>
+
+                            <th>PRICE</th>
+
+                            <th>STOCK</th>
+
+                            <th>STATUS</th>
+
+                            <th>ACTIONS</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="productTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="7"
+                                class="products-loading">
+
+                                Loading products...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         PRODUCT MODAL
+         ===================================================== -->
+
+    <div
+        id="productModal"
+        class="modal hidden">
+
+        <div class="product-modal-content">
+
+
+            <div class="product-modal-header">
+
+                <div>
+
+                    <p class="modal-eyebrow">
+                        PRODUCT CATALOG
+                    </p>
+
+                    <h2 id="productModalTitle">
+                        Add Product
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="modal-close"
+                    onclick="closeProductModal()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="productForm">
+
+
+                <input
+                    type="hidden"
+                    id="productId">
+
+
+                <!-- NAME -->
+
+                <div class="modern-form-group">
+
+                    <label for="productName">
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        placeholder="e.g. Tata Salt 1kg"
+                        required>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="modern-form-group">
+
+                    <label for="productDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="productDescription"
+                        rows="3"
+                        placeholder="Enter product description"></textarea>
+
+                </div>
+
+
+                <!-- PRICE + STOCK -->
+
+                <div class="form-row">
+
+                    <div class="modern-form-group">
+
+                        <label for="productPrice">
+                            Price
+                        </label>
+
+                        <div class="input-prefix">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="productPrice"
+                                min="0"
+                                step="0.01"
+                                placeholder="0.00"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="modern-form-group">
+
+                        <label for="productStock">
+                            Stock Quantity
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productStock"
+                            min="0"
+                            placeholder="0"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CATEGORY -->
+
+                <div class="modern-form-group">
+
+                    <label for="productCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="productCategory"
+                        required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- IMAGE -->
+
+                <div class="modern-form-group">
+
+                    <label for="productImage">
+                        Image URL
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productImage"
+                        placeholder="https://example.com/product.jpg">
+
+                </div>
+
+
+                <!-- ACTIVE -->
+
+                <div class="product-active-box">
+
+                    <div>
+
+                        <strong>
+                            Active Product
+                        </strong>
+
+                        <small>
+                            Make this product visible in the store
+                        </small>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="productActive"
+                            checked>
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="product-modal-actions">
+
+                    <button
+                        type="button"
+                        class="product-cancel-btn"
+                        onclick="closeProductModal()">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="productSubmitButton"
+                        class="product-save-btn">
+
+                        Create Product
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin.js"></script>
+
+
+    <script>
+
+        loadAdminProducts();
+
+        loadProductCategories();
+
+    </script>
+
+
+    <!-- =====================================================
+         ADMIN PRODUCT SEARCH
+         ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const searchInput =
+                    document.getElementById(
+                        "adminProductSearch"
+                    );
+
+
+                if (!searchInput) {
+                    return;
+                }
+
+
+                searchInput.addEventListener(
+                    "input",
+                    function () {
+
+                        const searchValue =
+                            this.value
+                                .trim()
+                                .toLowerCase();
+
+
+                        const rows =
+                            document.querySelectorAll(
+                                "#productTableBody tr"
+                            );
+
+
+                        rows.forEach(row => {
+
+                            const text =
+                                row.textContent
+                                    .toLowerCase();
+
+
+                            if (!searchValue) {
+
+                                row.style.display =
+                                    "";
+
+                            } else {
+
+                                row.style.display =
+                                    text.includes(
+                                        searchValue
+                                    )
+                                        ? ""
+                                        : "none";
+
+                            }
+
+                        });
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

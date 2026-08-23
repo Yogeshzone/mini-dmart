@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Reviews</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <div id="adminSidebar"></div>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <h1>
+                    Manage Reviews
+                </h1>
+
+                <p>
+                    Review, approve and manage customer feedback
+                </p>
+
+            </div>
+
+
+            <button
+                class="refresh-btn"
+                onclick="loadAdminReviews()">
+
+                ↻ Refresh
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             REVIEWS TABLE
+             ================================================= -->
+
+        <section class="reviews-table-section">
+
+
+            <div class="reviews-table-header">
+
+                <div>
+
+                    <h2>
+                        All Customer Reviews
+                    </h2>
+
+                    <p>
+                        Approve or reject reviews submitted by customers
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="reviews-table-wrapper">
+
+                <table class="reviews-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Product</th>
+
+                            <th>Customer</th>
+
+                            <th>Rating</th>
+
+                            <th>Comment</th>
+
+                            <th>Status</th>
+
+                            <th>Created</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="reviewsTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="reviews-loading">
+
+                                Loading reviews...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ERROR -->
+
+        <p
+            id="reviewsError"
+            class="dashboard-error">
+        </p>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/admin.js"></script>
+
+<script src="../js/admin-sidebar.js"></script>
+
+
+
+    <script>
+
+        loadAdminReviews();
+
+    </script>
+
+</body>
+
+</html>

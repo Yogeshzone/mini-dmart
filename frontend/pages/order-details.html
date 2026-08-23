@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="View your Mini DMart order details.">
+
+    <title>Mini DMart | Order Details</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/order-details.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="store-header">
+
+    <div class="header-container">
+
+        <!-- LOGO -->
+
+        <a href="../index.html"
+           class="store-logo">
+
+            <span class="logo-icon">
+                🛒
+            </span>
+
+            <span>
+                Mini <strong>DMart</strong>
+            </span>
+
+        </a>
+
+
+        <!-- LOCATION -->
+
+        <div class="delivery-location">
+
+            <span class="location-icon">
+                📍
+            </span>
+
+            <div>
+
+                <small>
+                    Delivering to
+                </small>
+
+                <strong>
+                    Your Location
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="store-search">
+
+            <span>
+                🔍
+            </span>
+
+            <input
+                type="text"
+                placeholder="Search for groceries, snacks and more..."
+            >
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="store-nav">
+
+            <a href="../index.html">
+
+                <span>
+                    🏠
+                </span>
+
+                <small>
+                    Shop
+                </small>
+
+            </a>
+
+
+            <a href="orders.html"
+               class="header-nav-active">
+
+                <span>
+                    📦
+                </span>
+
+                <small>
+                    Orders
+                </small>
+
+            </a>
+
+
+            <a href="profile.html">
+
+                <span>
+                    👤
+                </span>
+
+                <small>
+                    Profile
+                </small>
+
+            </a>
+
+
+            <a href="cart.html">
+
+                <span>
+                    🛒
+                </span>
+
+                <small>
+                    Cart
+                </small>
+
+            </a>
+
+
+            <button
+                class="header-logout"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="order-details-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="order-details-page-header">
+
+        <div>
+
+            <span class="section-label">
+                MINI DMART
+            </span>
+
+            <h1>
+                Order Details
+            </h1>
+
+            <p>
+                View complete information about your order.
+            </p>
+
+        </div>
+
+
+        <a href="orders.html"
+           class="back-orders-btn">
+
+            ← Back to Orders
+
+        </a>
+
+    </section>
+
+
+    <!-- =================================================
+         ORDER DETAILS
+         ================================================= -->
+
+    <section id="orderDetails"
+             class="order-details-container">
+
+        <div class="order-details-loading">
+
+            <div class="loading-spinner"></div>
+
+            <p>
+                Loading order details...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         BENEFITS
+         ================================================= -->
+
+    <section class="order-benefits">
+
+        <div class="order-benefit">
+
+            <div class="order-benefit-icon">
+                🚚
+            </div>
+
+            <div>
+
+                <strong>
+                    Fast Delivery
+                </strong>
+
+                <p>
+                    Get your essentials quickly.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="order-benefit">
+
+            <div class="order-benefit-icon">
+                🔒
+            </div>
+
+            <div>
+
+                <strong>
+                    Secure Shopping
+                </strong>
+
+                <p>
+                    Your order information is protected.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="order-benefit">
+
+            <div class="order-benefit-icon">
+                ↩️
+            </div>
+
+            <div>
+
+                <strong>
+                    Easy Returns
+                </strong>
+
+                <p>
+                    Simple return process.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="store-footer">
+
+    <div class="footer-container">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <a href="../index.html"
+               class="store-logo footer-logo">
+
+                <span class="logo-icon">
+                    🛒
+                </span>
+
+                <span>
+                    Mini <strong>DMart</strong>
+                </span>
+
+            </a>
+
+            <p>
+                Your everyday grocery store,
+                made simple.
+            </p>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="../index.html">
+                Products
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+            <a href="profile.html">
+                My Profile
+            </a>
+
+        </div>
+
+
+        <!-- CUSTOMER SERVICE -->
+
+        <div class="footer-column">
+
+            <h3>
+                Customer Service
+            </h3>
+
+            <a href="returns.html">
+                Returns
+            </a>
+
+            <a href="exchanges.html">
+                Exchanges
+            </a>
+
+            <a href="product-details.html">
+                Reviews
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-column">
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                📧 support@minidmart.com
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                📍 Pune, Maharashtra
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Mini DMart. All rights reserved.
+        </p>
+
+        <p>
+            Made for everyday shopping 🛒
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     MOBILE NAVIGATION
+     ===================================================== -->
+
+<nav class="mobile-bottom-nav">
+
+    <a href="../index.html"
+       class="mobile-nav-item">
+
+        <span>
+            🏠
+        </span>
+
+        <small>
+            Home
+        </small>
+
+    </a>
+
+
+    <a href="../index.html#products"
+       class="mobile-nav-item">
+
+        <span>
+            🔍
+        </span>
+
+        <small>
+            Shop
+        </small>
+
+    </a>
+
+
+    <a href="orders.html"
+       class="mobile-nav-item active">
+
+        <span>
+            📦
+        </span>
+
+        <small>
+            Orders
+        </small>
+
+    </a>
+
+
+    <a href="cart.html"
+       class="mobile-nav-item">
+
+        <span>
+            🛒
+        </span>
+
+        <small>
+            Cart
+        </small>
+
+    </a>
+
+
+    <a href="profile.html"
+       class="mobile-nav-item">
+
+        <span>
+            👤
+        </span>
+
+        <small>
+            Account
+        </small>
+
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/order-details.js"></script>
+
+</body>
+
+</html>

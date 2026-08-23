@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart - Admin Returns</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            🛒 Mini DMart
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="products.html">
+                📦 Products
+            </a>
+
+            <a href="orders.html">
+                🛍️ Orders
+            </a>
+
+            <a href="exchanges.html">
+                🔄 Exchanges
+            </a>
+
+            <a href="returns.html" class="active">
+                ↩️ Returns
+            </a>
+
+            <a href="audit-logs.html">
+                📋 Audit Logs
+            </a>
+
+        </nav>
+
+        <button
+            class="sidebar-logout"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="admin-main">
+
+        <header class="admin-header">
+
+            <div>
+
+                <h1>
+                    Manage Returns
+                </h1>
+
+                <p>
+                    View and process customer return requests
+                </p>
+
+            </div>
+
+            <button
+                class="refresh-btn"
+                onclick="loadAdminReturns()">
+
+                ↻ Refresh
+
+            </button>
+
+        </header>
+
+
+        <!-- RETURNS TABLE -->
+
+        <section class="returns-table-section">
+
+            <div class="returns-table-header">
+
+                <h2>
+                    All Return Requests
+                </h2>
+                <p>
+                    Review and process
+                </p>
+            </div>
+
+
+            <div class="returns-table-wrapper">
+
+                <table class="returns-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Order Item</th>
+
+                            <th>Reason</th>
+
+                            <th>Status</th>
+
+                            <th>Requested At</th>
+
+                            <th>Processed At</th>
+
+                            <th>Staff Remarks</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="returnsTableBody">
+
+                        <tr>
+
+                            <td colspan="8">
+                                Loading return requests...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/admin.js"></script>
+
+    <script>
+
+        loadAdminReturns();
+
+    </script>
+
+</body>
+
+</html>

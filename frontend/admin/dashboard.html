@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini DMart | Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+    <link rel="stylesheet"
+          href="../css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="admin-sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🛒
+        </div>
+
+        <div>
+            <h2>Mini DMart</h2>
+            <span>Admin Panel</span>
+        </div>
+
+    </div>
+
+
+    <div class="sidebar-section">
+
+        <p class="sidebar-title">
+            MAIN MENU
+        </p>
+
+
+        <a href="dashboard.html"
+           class="sidebar-link active">
+
+            <span>📊</span>
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="products.html"
+           class="sidebar-link">
+
+            <span>📦</span>
+            <span>Products</span>
+
+        </a>
+
+
+        <a href="categories.html"
+           class="sidebar-link">
+
+            <span>🗂️</span>
+            <span>Categories</span>
+
+        </a>
+
+
+        <a href="users.html"
+           class="sidebar-link">
+
+            <span>👥</span>
+            <span>Users</span>
+
+        </a>
+
+
+        <a href="orders.html"
+           class="sidebar-link">
+
+            <span>🛍️</span>
+            <span>Orders</span>
+
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-section">
+
+        <p class="sidebar-title">
+            OPERATIONS
+        </p>
+
+
+        <a href="inventory.html"
+           class="sidebar-link">
+
+            <span>📊</span>
+            <span>Inventory</span>
+
+        </a>
+
+
+        <a href="pickup-slots.html"
+           class="sidebar-link">
+
+            <span>🕐</span>
+            <span>Pickup Slots</span>
+
+        </a>
+
+
+        <a href="returns.html"
+           class="sidebar-link">
+
+            <span>↩️</span>
+            <span>Returns</span>
+
+        </a>
+
+
+        <a href="exchanges.html"
+           class="sidebar-link">
+
+            <span>🔄</span>
+            <span>Exchanges</span>
+
+        </a>
+
+
+        <a href="payments.html"
+           class="sidebar-link">
+
+            <span>💳</span>
+            <span>Payments</span>
+
+        </a>
+
+
+        <a href="reviews.html"
+           class="sidebar-link">
+
+            <span>⭐</span>
+            <span>Reviews</span>
+
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-section">
+
+        <p class="sidebar-title">
+            SYSTEM
+        </p>
+
+
+        <a href="audit-logs.html"
+           class="sidebar-link">
+
+            <span>📋</span>
+            <span>Audit Logs</span>
+
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-bottom">
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            <span>🚪</span>
+
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="admin-main">
+
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div>
+
+            <p class="breadcrumb">
+                Admin / Dashboard
+            </p>
+
+            <h1>
+                Dashboard
+            </h1>
+
+        </div>
+
+
+        <div class="admin-profile">
+
+            <div class="profile-avatar">
+                A
+            </div>
+
+            <div>
+
+                <strong>
+                    Administrator
+                </strong>
+
+                <span>
+                    System Admin
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome-card">
+
+        <div>
+
+            <p class="welcome-label">
+                OVERVIEW
+            </p>
+
+            <h2>
+                Welcome back, Administrator 👋
+            </h2>
+
+            <p>
+                Here's what's happening with your Mini DMart
+                application today.
+            </p>
+
+        </div>
+
+
+        <div class="welcome-icon">
+            🛒
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================== -->
+
+    <section class="stats-grid">
+
+
+        <!-- PRODUCTS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                📦
+            </div>
+
+            <div class="stat-content">
+
+                <span>
+                    Total Products
+                </span>
+
+                <strong id="totalProducts">
+                    0
+                </strong>
+
+                <small>
+                    Products in store
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ORDERS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon blue">
+                🛍️
+            </div>
+
+            <div class="stat-content">
+
+                <span>
+                    Total Orders
+                </span>
+
+                <strong id="totalOrders">
+                    0
+                </strong>
+
+                <small>
+                    Customer orders
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- EXCHANGES -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                🔄
+            </div>
+
+            <div class="stat-content">
+
+                <span>
+                    Exchanges
+                </span>
+
+                <strong id="totalExchanges">
+                    0
+                </strong>
+
+                <small>
+                    Exchange requests
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- USERS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                👥
+            </div>
+
+            <div class="stat-content">
+
+                <span>
+                    Total Users
+                </span>
+
+                <strong id="totalUsers">
+                    0
+                </strong>
+
+                <small>
+                    Registered users
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AUDIT LOGS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon red">
+                📋
+            </div>
+
+            <div class="stat-content">
+
+                <span>
+                    Audit Logs
+                </span>
+
+                <strong id="totalAuditLogs">
+                    0
+                </strong>
+
+                <small>
+                    System activities
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ERROR -->
+
+    <p id="dashboardError"
+       class="dashboard-error">
+    </p>
+
+
+
+    <!-- =================================================
+         CONTENT GRID
+    ================================================== -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                    <p>
+                        Manage your store quickly
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+
+                <a href="products.html"
+                   class="action-card">
+
+                    <div class="action-icon orange-bg">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Products
+                        </strong>
+
+                        <span>
+                            Add and manage products
+                        </span>
+
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+
+                <a href="orders.html"
+                   class="action-card">
+
+                    <div class="action-icon blue-bg">
+                        🛍️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Orders
+                        </strong>
+
+                        <span>
+                            Manage customer orders
+                        </span>
+
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+
+                <a href="inventory.html"
+                   class="action-card">
+
+                    <div class="action-icon green-bg">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Inventory
+                        </strong>
+
+                        <span>
+                            Monitor product stock
+                        </span>
+
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+
+                <a href="returns.html"
+                   class="action-card">
+
+                    <div class="action-icon red-bg">
+                        ↩️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Returns
+                        </strong>
+
+                        <span>
+                            Review return requests
+                        </span>
+
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+
+                <a href="exchanges.html"
+                   class="action-card">
+
+                    <div class="action-icon purple-bg">
+                        🔄
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Exchanges
+                        </strong>
+
+                        <span>
+                            Manage exchange requests
+                        </span>
+
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+
+
+                <a href="reviews.html"
+                   class="action-card">
+
+                    <div class="action-icon yellow-bg">
+                        ⭐
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Reviews
+                        </strong>
+
+                        <span>
+                            Approve customer reviews
+                        </span>
+
+                    </div>
+
+                    <b>→</b>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MANAGEMENT -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <h2>
+                        Store Management
+                    </h2>
+
+                    <p>
+                        Frequently used sections
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="management-list">
+
+
+                <a href="categories.html"
+                   class="management-item">
+
+                    <span class="management-icon">
+                        🗂️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Categories
+                        </strong>
+
+                        <small>
+                            Organize your products
+                        </small>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a href="users.html"
+                   class="management-item">
+
+                    <span class="management-icon">
+                        👥
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Users
+                        </strong>
+
+                        <small>
+                            Manage customer accounts
+                        </small>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a href="payments.html"
+                   class="management-item">
+
+                    <span class="management-icon">
+                        💳
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Payments
+                        </strong>
+
+                        <small>
+                            View customer payments
+                        </small>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a href="pickup-slots.html"
+                   class="management-item">
+
+                    <span class="management-icon">
+                        🕐
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Pickup Slots
+                        </strong>
+
+                        <small>
+                            Manage store pickup
+                        </small>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a href="audit-logs.html"
+                   class="management-item">
+
+                    <span class="management-icon">
+                        📋
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Audit Logs
+                        </strong>
+
+                        <small>
+                            Track system activity
+                        </small>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SYSTEM STATUS
+    ================================================== -->
+
+    <section class="system-card">
+
+        <div class="system-left">
+
+            <div class="system-status-dot"></div>
+
+            <div>
+
+                <strong>
+                    System Status
+                </strong>
+
+                <span>
+                    Mini DMart services are operational
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <span class="operational">
+            ● Operational
+        </span>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="../js/api.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/admin.js"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        loadAdminDashboard();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
