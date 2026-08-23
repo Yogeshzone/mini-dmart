@@ -96,7 +96,9 @@ public class SecurityConfig {
             // CORS
             // -------------------------------------------------
 
-            .cors(cors -> {})
+            .cors(cors -> cors.configurationSource(
+                    corsConfigurationSource()
+            ))
 
             // -------------------------------------------------
             // SESSION MANAGEMENT
@@ -121,6 +123,10 @@ public class SecurityConfig {
             // -------------------------------------------------
 
             .authorizeHttpRequests(auth -> auth
+
+                // CORS preflight requests
+                .requestMatchers(HttpMethod.OPTIONS, "/**")
+                .permitAll()
 
                 // Authentication APIs are public
                 .requestMatchers("/api/auth/**")
@@ -151,11 +157,7 @@ public class SecurityConfig {
 
             .exceptionHandling(exception -> exception
 
-                // -------------------------------------------------
                 // 401 - UNAUTHORIZED
-                // No JWT / invalid authentication
-                // -------------------------------------------------
-
                 .authenticationEntryPoint(
                     (request, response, authException) -> {
 
@@ -177,11 +179,7 @@ public class SecurityConfig {
                     }
                 )
 
-                // -------------------------------------------------
                 // 403 - FORBIDDEN
-                // Authenticated but insufficient role
-                // -------------------------------------------------
-
                 .accessDeniedHandler(
                     (request, response, accessDeniedException) -> {
 
@@ -214,5 +212,52 @@ public class SecurityConfig {
             );
 
         return http.build();
+    }
+
+    // =========================================================
+    // CORS CONFIGURATION
+    // =========================================================
+
+    @Bean
+    public org.springframework.web.cors.CorsConfigurationSource
+    corsConfigurationSource() {
+
+        org.springframework.web.cors.CorsConfiguration configuration =
+                new org.springframework.web.cors.CorsConfiguration();
+
+        configuration.setAllowedOrigins(
+                java.util.List.of(
+                        "http://localhost:5500",
+                        "http://127.0.0.1:5500",
+                        "https://mini-dmart-6llf.onrender.com"
+                )
+        );
+
+        configuration.setAllowedMethods(
+                java.util.List.of(
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "DELETE",
+                        "OPTIONS"
+                )
+        );
+
+        configuration.setAllowedHeaders(
+                java.util.List.of("*")
+        );
+
+        configuration.setAllowCredentials(true);
+
+        org.springframework.web.cors.UrlBasedCorsConfigurationSource source =
+                new org.springframework.web.cors.UrlBasedCorsConfigurationSource();
+
+        source.registerCorsConfiguration(
+                "/**",
+                configuration
+        );
+
+        return source;
     }
 }
